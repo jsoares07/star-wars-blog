@@ -46,10 +46,10 @@ export const Home = () => {
 							cardItem={item.name}
 							// image={}
 							firstInfo={"Model: "}
-							secondInfo={"Passengers: "}
+							secondInfo={"Crew: "}
 							thirdInfo={"Class: "}
 							firstDesc={item.model}
-							secondDesc={item.passengers}
+							secondDesc={item.crew}
 							thirdDesc={item.vehicle_class}
 						/>
 					);
