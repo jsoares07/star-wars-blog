@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import { Card } from "../component/card";
 
 import { Context } from "../store/appContext";
@@ -17,13 +16,13 @@ export const Characters = () => {
 					return (
 						<Card
 							key={index}
-							title={item.name}
+							itemCard={item.name}
 							// image={}
 							firstInfo={"Birth Year: "}
 							secondInfo={"Gender: "}
 							thirdInfo={"Eyes Color: "}
 							firstDesc={item.birth_year}
-							secordDesc={item.gender}
+							secondDesc={item.gender}
 							thirdDesc={item.eye_color}
 						/>
 					);
