@@ -16,7 +16,7 @@ export const Vehicles = () => {
 					return (
 						<Card
 							key={index}
-							itemCard={item.name}
+							cardItem={item.name}
 							// image={}
 							firstInfo={"Model: "}
 							secondInfo={"Passengers: "}

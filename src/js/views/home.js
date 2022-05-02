@@ -23,7 +23,7 @@ export const Home = () => {
 					return (
 						<Card
 							key={index}
-							title={item.name}
+							cardItem={item.name}
 							// image={}
 							firstInfo={"Year of birth: "}
 							secondInfo={"Gender: "}
@@ -43,7 +43,7 @@ export const Home = () => {
 					return (
 						<Card
 							key={index}
-							itemCard={item.name}
+							cardItem={item.name}
 							// image={}
 							firstInfo={"Model: "}
 							secondInfo={"Passengers: "}
@@ -63,7 +63,7 @@ export const Home = () => {
 					return (
 						<Card
 							key={index}
-							itemCard={item.name}
+							cardItem={item.name}
 							// image={}
 							firstInfo={"Weather: "}
 							secondInfo={"Terrain: "}

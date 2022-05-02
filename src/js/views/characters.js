@@ -16,7 +16,7 @@ export const Characters = () => {
 					return (
 						<Card
 							key={index}
-							itemCard={item.name}
+							cardItem={item.name}
 							// image={}
 							firstInfo={"Birth Year: "}
 							secondInfo={"Gender: "}

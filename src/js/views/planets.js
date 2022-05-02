@@ -16,7 +16,7 @@ export const Planets = () => {
 					return (
 						<Card
 							key={index}
-							itemCard={item.name}
+							cardItem={item.name}
 							// image={}
 							firstInfo={"Weather: "}
 							secondInfo={"terrain: "}
