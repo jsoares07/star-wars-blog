@@ -1,16 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
-import { Context } from "../store/appContext";
 
-import "../../styles/demo.scss";
+
 
 export const Characters = () => {
-	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container">
-			<h3>Characters</h3>
+		<div className="container my-2 border rounded">
+			<h3 className="text-centre">Characters</h3>
+			<div className="overflow-auto row flex-row flex-nowrap">
+			</div>
 		</div>
 	);
 };
