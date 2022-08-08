@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Card } from "../component/card";
+import { VehiCard } from "../component/vehi-card";
 
 import { Context } from "../store/appContext";
 
@@ -14,7 +14,7 @@ export const Vehicles = () => {
         <div className="overflow-auto row flex-row flex-nowrap">
 				{store.vehicles.map((item, index) => {
 					return (
-						<Card
+						<VehiCard
 							key={index}
 							cardItem={item.name}
 							// image={}

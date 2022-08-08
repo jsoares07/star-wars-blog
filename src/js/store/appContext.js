@@ -33,6 +33,7 @@ const injectContext = PassedComponent => {
 			 **/
 
 			state.actions.fetchCharacters();
+			state.actions.fetchCharacters();
 			state.actions.fetchVehicles();
 			state.actions.fetchPlanets();
 

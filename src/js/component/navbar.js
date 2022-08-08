@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 
 	return (
 		<nav className="navbar navbar-light bg-light mb-3 sticky-top">
@@ -21,12 +22,30 @@ export const Navbar = () => {
 			<div className="ml-auto">
 				<div className="btn-group dropleft">
 					<button type="button" className="btn btn-warning dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Favorites
+						Favorites{" "}
+						{store.favorite.length}
 					</button>
-						<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-   						 		<li><a className="dropdown-item" href="#">Item 1</a></li>
-    							<li><a className="dropdown-item" href="#">Item 2</a></li>
-   				 				<li><a className="dropdown-item" href="#">Item 3</a></li>
+						<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+						{store.favorite.length > 0 ? (
+						store.favorite.map((favorite, index) => {
+							return (
+									<li key={index}>
+										<div className="favAndTrash" >
+											{favorite}
+											<i
+												id="delete"
+												className="far fa-trash-alt pointer trash"
+												onClick={() => {
+													actions.deleteFavorite({ index });
+												}}
+											/>
+										</div>
+									</li>
+							);
+						})
+					) : (
+							<p>Empty</p>
+					)}
   						</ul>
 				</div>
 			</div>

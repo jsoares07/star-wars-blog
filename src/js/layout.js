@@ -9,11 +9,13 @@ import { Characters } from "./views/characters";
 import { Vehicles } from "./views/vehicles";
 import { Planets } from "./views/planets";
 
+import { CharDescription } from "./views/char-description";
+
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
-import { Card } from "./component/card";
+
 import { Footer } from "./component/footer";
 
 //create your first component
@@ -30,6 +32,10 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+
+						<Route exact path="/characters/:uid">
+							<CharDescription />
 						</Route>
 
 						<Route exact path="/characters">

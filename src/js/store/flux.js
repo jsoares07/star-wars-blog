@@ -2,8 +2,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			characters: [],
+			character: [],
 			vehicles: [],
 			planets: [],
+			description: [],
+			favorite: [], 
 			demo: [
 				{
 					title: "FIRST",
@@ -29,6 +32,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((promiseResponse) => promiseResponse.json())
 					.then(data => setStore({ characters: data.results }));
 			},
+
+
+			fetchCharactersById: (uid) => {
+				console.log("CHARACTER");
+				const store = getStore();
+		
+				fetch("https://www.swapi.tech/api/people/" + uid, {
+		
+				  method: "GET",
+				  headers: {
+					"Content-Type": "application/json",
+				  },
+				})
+				  .then((response) => response.json())
+				  .then((result) => {
+					setStore({ character: result.results });
+					console.log("CHAR =====", store.character)
+				  })
+				  .catch((error) => console.log("error", error));
+			  },
+			
 			fetchVehicles: () => {
 				fetch("https://swapi.dev/api/vehicles/", {
 					method: "GET",
@@ -48,6 +72,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then((promiseResponse) => promiseResponse.json())
 					.then(data => setStore({ planets: data.results }));
+			},
+			
+			addFavorite: item => {
+				const store = getStore();
+				const validate = store.favorite.includes(item);
+				if (store.favorite == [] || !validate) {
+					setStore({ favorite: [...store.favorite, item] });
+				}
+			},
+
+			deleteFavorite: id => {
+				const store = getStore();
+				const updatedList = [...store.favorite];
+				updatedList.splice(id, 1);
+				setStore({ favorite: [...updatedList] });
 			},
 			
 			exampleFunction: () => {

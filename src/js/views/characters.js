@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Card } from "../component/card";
+import { CharCard } from "../component/char-card";
 
 import { Context } from "../store/appContext";
 
@@ -14,7 +14,7 @@ export const Characters = () => {
 			<div className="overflow-auto row flex-row flex-nowrap">
 				{store.characters.map((item, index) => {
 					return (
-						<Card
+						<CharCard
 							key={index}
 							cardItem={item.name}
 							// image={}

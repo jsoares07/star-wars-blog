@@ -1,8 +1,9 @@
 import React, { Component, useContext } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-export const Card = (props) => {
+export const CharCard = (props) => {
 	const {store, actions} = useContext(Context);
 
 
@@ -24,11 +25,28 @@ export const Card = (props) => {
 					{props.thirdDesc}
 				</p>
 			</div>
+			<div className="d-flex justify-content-between">
+                        <Link to={"/characters/" + props.cardItem}>
+                            <button href="#" className="btn btn-outline-primary">
+                                Learn More!
+                            </button>
+                        </Link>
+
+                        <button
+                            id="heart"
+                            className="btn"
+                            onClick={() => {
+                                actions.addFavorite(props.cardItem);
+                            }}
+                        >
+                        <a href="#" className="btn btn-primary">❤️</a>
+                        </button>   
+                    </div> 
 		</div>
 	);
 };
 
-Card.propTypes = {
+CharCard.propTypes = {
 	image: PropTypes.string,
 	cardItem: PropTypes.string,
 	firstInfo: PropTypes.string,
